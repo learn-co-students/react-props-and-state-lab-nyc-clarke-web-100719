@@ -16,8 +16,8 @@ class App extends React.Component {
   }
 
   onChangeType = (newType) => {
+    // unnecessary, type is already changed when you onFindPetsClick
     // this.setState(previousState => {
-      
     //   return {
     //     pets: newType === 'all' 
     //       ? previousState.pets
