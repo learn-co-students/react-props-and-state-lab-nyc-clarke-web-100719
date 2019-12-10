@@ -16,17 +16,23 @@ class App extends React.Component {
   }
 
   onChangeType = (newType) => {
-    this.setState(previousState => {
+    // this.setState(previousState => {
       
-      return {
-        pets: newType === 'all' 
-          ? previousState.pets
-          : previousState.pets.filter(pet => pet.type === this.props.type),
-        filters: {
-          type: newType
-        }
+    //   return {
+    //     pets: newType === 'all' 
+    //       ? previousState.pets
+    //       : previousState.pets.filter(pet => pet.type === this.props.type),
+    //     filters: {
+    //       type: newType
+    //     }
+    //   }
+    // })
+
+    return {
+      filters: {
+        type: newType
       }
-    })
+    }
   }
 
   onFindPetsClick = () => {
