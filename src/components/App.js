@@ -45,17 +45,27 @@ class App extends React.Component {
     
     fetch(petsUrl)
       .then(resp => resp.json())
-      .then(json => this.setState({pets: [json]}))
+      .then(json => this.setState({pets: json}))
   }
 
   onAdoptPet = (id) => {
-    const petWithId = this.state.pets.find(pet => pet.id === id)
-    if (petWithId) {
-      petWithId.isAdopted = true
+    const petIndex = this.state.pets.findIndex(pet => pet.id === id)
+    if (petIndex >= 0) {
+      // petWithId.isAdopted = true
+
+      this.setState(previousState => {
+        let newDogArray = previousState.pets
+        newDogArray[petIndex].isAdopted = true
+        return {
+          ...previousState,
+          pets: newDogArray
+        }
+      })
     }
   }
 
   render() {
+    console.log(this.state)
     return (
       <div className="ui container">
         <header>
